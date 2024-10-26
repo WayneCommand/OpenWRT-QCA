@@ -7,25 +7,29 @@ on:
   workflow_dispatch:
     inputs:
       TARGET:
-        default: 'MEDIATEK'
+        default: 'X86'
         required: true
         type: choice
-        options: [MEDIATEK, ROCKCHIP, X86, IPQ60XX-WIFI-YES, IPQ60XX-WIFI-NO, IPQ807X-WIFI-YES, IPQ807X-WIFI-NO]
+        description: '选择编译平台'
+        options: [X86, IPQ60XX-WIFI, IPQ807X-WIFI]
       SOURCE:
-        default: 'VIKINGYFY/immortalwrt'
+        default: 'immortalwrt/immortalwrt'
         required: true
         type: choice
-        options: [VIKINGYFY/immortalwrt, immortalwrt/immortalwrt, breeze303/openwrt-ipq, qosmio/openwrt-ipq]
+        description: 'source'
+        options: [immortalwrt/immortalwrt, breeze303/openwrt-ipq, qosmio/openwrt-ipq]
       BRANCH:
-        default: 'main'
+        default: 'master'
         required: true
+        description: 'Branch'
         type: string
       PACKAGE:
         required: false
+        description: '插件调整'
         type: string
       TEST:
         description: '仅输出配置文件，不编译固件。'
-        default: 'true'
+        default: true
         required: true
         type: boolean
 
